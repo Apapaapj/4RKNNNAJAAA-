@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>4RKN HOST PRO</title>
+<title>4RKN HOST FINAL</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
@@ -13,22 +13,18 @@ body{
   background:black;
   color:white;
   font-family:'Creepster';
-  overflow-x:hidden;
 }
 
 /* BACKGROUND */
 body::before{
   content:"";
   position:fixed;
-  width:100%;height:100%;
+  width:100%;
+  height:100%;
   background:url('https://i.imgur.com/8Km9tLL.jpg') center/cover no-repeat;
-  filter:blur(5px) brightness(0.25);
+  filter:blur(5px) brightness(0.3);
   z-index:-1;
-  animation:flickerBG 0.6s infinite;
-}
-@keyframes flickerBG{
-  0%,100%{filter:blur(5px) brightness(0.25);}
-  50%{filter:blur(6px) brightness(0.05);}
+  pointer-events:none; /* FIX KLIK */
 }
 
 /* LOGIN */
@@ -58,6 +54,8 @@ button{
   border:none;
   color:white;
   cursor:pointer;
+  position:relative;
+  z-index:5; /* FIX KLIK */
 }
 
 /* MAIN */
@@ -65,7 +63,7 @@ button{
 
 .title{
   text-align:center;
-  font-size:50px;
+  font-size:45px;
   color:red;
   margin-top:20px;
 }
@@ -97,17 +95,16 @@ button{
   text-align:center;
 }
 #gallery img{
-  width:160px;
+  width:150px;
   margin:10px;
   border-radius:10px;
   transition:0.3s;
 }
 #gallery img:hover{
   transform:scale(1.1);
-  filter:brightness(1.2);
 }
 
-/* FLOATING TEXT */
+/* FLOAT TEXT */
 .neon{
   position:absolute;
   color:red;
@@ -129,9 +126,9 @@ button{
   justify-content:center;
   align-items:center;
   opacity:0;
+  pointer-events:none; /* FIX */
   z-index:999;
 }
-
 </style>
 </head>
 
@@ -141,9 +138,11 @@ button{
 <div id="loginScreen">
   <h2>LOGIN 4RKN HOST</h2>
   <p>Follow IG <a href="https://instagram.com/4rknnnajaa" target="_blank">@4rknnnajaa</a><br>DM: "bang mau bikin akun"</p>
-  <input id="inputUser" placeholder="Username">
-  <input id="inputPass" type="password" placeholder="Password">
-  <button id="btnLogin">LOGIN</button>
+  
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button id="loginBtn">LOGIN</button>
+  
   <p id="msg" style="color:red;"></p>
 </div>
 
@@ -151,11 +150,10 @@ button{
 <div id="mainSite">
   <div class="title">4RKN HOST</div>
   <div id="guide">Klik START SYSTEM</div>
-  <button id="btnStart">START SYSTEM</button>
+  <button id="startBtn">START SYSTEM</button>
 
   <div class="terminal" id="terminal"></div>
 
-  <!-- GALLERY -->
   <div id="gallery">
     <h2 style="color:red;">DATA VISUAL</h2>
     <img src="IMG_20260307_162628_141.jpg">
@@ -173,51 +171,43 @@ button{
 <audio id="scare" src="https://www.myinstants.com/media/sounds/scream.mp3"></audio>
 
 <script>
-// LOGIN SYSTEM
+// LOGIN
 const USER="ARKAN GANTENG";
 const PASSWORDS=["ARKAN GANTENG","FOLLOW4RKN"];
 
-const inputUser=document.getElementById("inputUser");
-const inputPass=document.getElementById("inputPass");
-const msg=document.getElementById("msg");
-const loginScreen=document.getElementById("loginScreen");
-const mainSite=document.getElementById("mainSite");
+document.getElementById("loginBtn").addEventListener("click", ()=>{
+  let u=document.getElementById("user").value.trim();
+  let p=document.getElementById("pass").value.trim();
 
-document.getElementById("btnLogin").addEventListener("click", ()=>{
-  const u=inputUser.value.trim();
-  const p=inputPass.value.trim();
   if(u===USER && PASSWORDS.includes(p.toUpperCase())){
-    loginScreen.style.display="none";
-    mainSite.style.display="block";
-    document.getElementById("bg").play();
+    document.getElementById("loginScreen").style.display="none";
+    document.getElementById("mainSite").style.display="block";
+    document.getElementById("bg").play().catch(()=>{});
   }else{
-    msg.innerText="Salah! Follow & DM IG dulu!";
+    document.getElementById("msg").innerText="Salah! Follow & DM IG dulu!";
   }
 });
 
-// TERMINAL DATA
+// TERMINAL
 const data=[
-"Connecting to server...",
-"Bypassing security...",
+"Connecting...",
+"Bypassing...",
 "Access granted...",
 "Loading data...",
-"Scanning visuals...",
-"Injecting system...",
+"Scanning...",
+"System injected...",
 "System compromised..."
 ];
 
 let i=0;
-const terminal=document.getElementById("terminal");
-const guide=document.getElementById("guide");
-const jumpscareDiv=document.getElementById("jumpscare");
-const gallery=document.getElementById("gallery");
 
-document.getElementById("btnStart").addEventListener("click", startHack);
+document.getElementById("startBtn").addEventListener("click", ()=>{
+  let terminal=document.getElementById("terminal");
+  let guide=document.getElementById("guide");
 
-function startHack(){
-  guide.innerText="Memulai sistem...";
   i=0;
   terminal.innerHTML="";
+
   let interval=setInterval(()=>{
     if(i<data.length){
       terminal.innerHTML+=data[i]+"<br>";
@@ -226,26 +216,28 @@ function startHack(){
       i++;
     }else{
       clearInterval(interval);
-      showResult();
+      result();
     }
-  },800);
-}
+  },700);
+});
 
-// SHOW JUMPSCARE + GALLERY
-function showResult(){
+// RESULT
+function result(){
+  let jump=document.getElementById("jumpscare");
+
   setTimeout(()=>{
-    jumpscareDiv.style.opacity=1;
+    jump.style.opacity=1;
     document.getElementById("scare").play();
   },1000);
 
   setTimeout(()=>{
-    jumpscareDiv.style.opacity=0;
-    gallery.style.display="block";
+    jump.style.opacity=0;
+    document.getElementById("gallery").style.display="block";
   },3000);
 }
 
-// FLOATING TEXT
-const quotes=["aku lelah...","sendiri...","gelap...","semua hilang..."];
+// FLOAT TEXT
+const quotes=["aku lelah...","sendiri...","gelap...","hilang..."];
 setInterval(()=>{
   let q=document.createElement("div");
   q.className="neon";
