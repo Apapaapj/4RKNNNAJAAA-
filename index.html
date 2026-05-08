@@ -1,253 +1,171 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>4RKN HOST FINAL</title>
+export default function CyberBasicClassRoom() { const guides = [ "Apa Itu Cyber Security", "Dasar Ethical Hacking", "Apa Itu Bug Hunter", "Apa Itu Bug Bounty", "Cara Memulai Bug Bounty", "Belajar HTML Dasar", "Belajar CSS Dasar", "Belajar JavaScript Dasar", "Belajar HTTP & HTTPS", "Dasar Networking", "Belajar Linux", "Dasar Termux", "Install Tools di Termux", "Cara Membuat Website", "Dasar Keamanan Website", "Belajar API", "Cara Menggunakan GitHub", "Dasar SQL", "Cara Belajar Programming", "Tips Menjadi Bug Bounty Pemula", ];
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+const guideImages = [ "https://images.unsplash.com/photo-1518770660439-4636190af475", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3", "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5", "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe", "https://images.unsplash.com/photo-1504639725590-34d0984388bd", ]; "Apa Itu Cyber Security", "Dasar Ethical Hacking", "Apa Itu Bug Hunter", "Apa Itu Bug Bounty", "Cara Memulai Bug Bounty", "Belajar HTML Dasar", "Belajar CSS Dasar", "Belajar JavaScript Dasar", "Belajar HTTP & HTTPS", "Dasar Networking", "Belajar Linux", "Dasar Termux", "Install Tools di Termux", "Cara Membuat Website", "Dasar Keamanan Website", "Belajar API", "Cara Menggunakan GitHub", "Dasar SQL", "Cara Belajar Programming", "Tips Menjadi Bug Bounty Pemula", ];
 
-body{
-  margin:0;
-  background:black;
-  color:white;
-  font-family:'Creepster';
-}
+return ( <div className="min-h-screen bg-black text-green-400 font-mono p-6"> <header className="text-center py-10 border-b border-green-700 relative overflow-hidden"> <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle,_#00ff88_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
 
-/* BACKGROUND */
-body::before{
-  content:"";
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:url('https://i.imgur.com/8Km9tLL.jpg') center/cover no-repeat;
-  filter:blur(5px) brightness(0.3);
-  z-index:-1;
-  pointer-events:none; /* FIX KLIK */
-}
+<div className="flex justify-center mb-6 relative z-10">
+      <div className="w-32 h-32 rounded-full border-4 border-green-500 shadow-[0_0_40px_#00ff88] overflow-hidden animate-pulse">
+        <img
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+          alt="CyberBasicClassRoom Logo"
+          className="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+    <h1 className="text-5xl font-bold tracking-widest">
+      CyberBasicClassRoom
+    </h1>
+    <p className="mt-4 text-lg text-green-300">
+      Komunitas Belajar Cyber Security, Coding, dan Bug Bounty
+    </p>
 
-/* LOGIN */
-#loginScreen{
-  position:fixed;
-  width:100%;
-  height:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  background:black;
-  z-index:10;
-}
+    <div className="mt-6 flex flex-wrap justify-center gap-4">
+      <a
+        href="https://www.instagram.com/4rknnnajaaa?igsh=MXI4ZmR6bGNld2NwMw=="
+        className="bg-green-500 text-black px-5 py-2 rounded-xl hover:scale-105 transition"
+      >
+        Instagram Creator
+      </a>
 
-input{
-  padding:10px;
-  margin:5px;
-  background:#111;
-  border:none;
-  color:white;
-}
+      <button className="border border-green-500 px-5 py-2 rounded-xl hover:bg-green-500 hover:text-black transition">
+        Join Community
+      </button>
+    </div>
+  </header>
 
-button{
-  padding:10px 20px;
-  background:red;
-  border:none;
-  color:white;
-  cursor:pointer;
-  position:relative;
-  z-index:5; /* FIX KLIK */
-}
+  <section className="py-12 grid md:grid-cols-2 gap-8">
+    <div className="bg-zinc-900 rounded-3xl p-6 border border-green-800 shadow-2xl">
+      <h2 className="text-3xl font-bold mb-4 text-green-300">
+        Tentang Komunitas
+      </h2>
 
-/* MAIN */
-#mainSite{display:none;}
+      <p className="leading-8 text-green-200">
+        CyberBasicClassRoom adalah komunitas belajar cyber security dan coding
+        untuk pemula. Website ini dibuat untuk membantu orang belajar dasar
+        bug bounty, ethical hacking, networking, HTML, Linux, Termux, dan
+        keamanan website secara legal dan edukatif.
+      </p>
 
-.title{
-  text-align:center;
-  font-size:45px;
-  color:red;
-  margin-top:20px;
-}
+      <div className="mt-6">
+        <h3 className="text-2xl font-bold mb-3">Create By</h3>
+        <p className="text-xl">4rknnnajaaa</p>
+      </div>
+    </div>
 
-/* TERMINAL */
-.terminal{
-  width:90%;
-  max-width:800px;
-  margin:20px auto;
-  background:rgba(0,0,0,0.9);
-  border:2px solid red;
-  padding:15px;
-  height:250px;
-  overflow-y:auto;
-  font-family:monospace;
-  color:#0f0;
-}
+    <div className="bg-zinc-900 rounded-3xl p-6 border border-green-800 shadow-2xl">
+      <h2 className="text-3xl font-bold mb-4 text-green-300">
+        Login Community
+      </h2>
 
-/* GUIDE */
-#guide{
-  text-align:center;
-  color:red;
-}
+      <div className="space-y-4">
+        <div className="bg-black border border-green-700 rounded-xl p-3 text-left text-green-400 text-sm">
+          <p>Demo Login Admin</p>
+          <p>Username: admin</p>
+          <p>Password: cyber123</p>
+        </div>
+        <input
+          type="text"
+          placeholder="Username"
+          className="w-full p-3 rounded-xl bg-black border border-green-700"
+        />
 
-/* GALLERY */
-#gallery{
-  display:none;
-  padding:20px;
-  text-align:center;
-}
-#gallery img{
-  width:150px;
-  margin:10px;
-  border-radius:10px;
-  transition:0.3s;
-}
-#gallery img:hover{
-  transform:scale(1.1);
-}
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full p-3 rounded-xl bg-black border border-green-700"
+        />
 
-/* FLOAT TEXT */
-.neon{
-  position:absolute;
-  color:red;
-  animation:float 6s linear forwards;
-}
-@keyframes float{
-  0%{transform:translateY(100vh);opacity:0;}
-  20%{opacity:1;}
-  100%{transform:translateY(-100px);opacity:0;}
-}
+        <button className="w-full bg-green-500 text-black font-bold p-3 rounded-xl hover:scale-105 transition">
+          LOGIN
+        </button>
 
-/* JUMPSCARE */
-#jumpscare{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:black;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  opacity:0;
-  pointer-events:none; /* FIX */
-  z-index:999;
-}
-</style>
-</head>
+        <button className="w-full border border-green-500 p-3 rounded-xl hover:bg-green-500 hover:text-black transition">
+          CREATE ACCOUNT
+        </button>
+      </div>
 
-<body>
+      <p className="text-sm text-green-500 mt-4">
+        *Demo UI login. Untuk akun asli bisa ditambahkan Firebase/Supabase.
+      </p>
+    </div>
+  </section>
 
-<!-- LOGIN -->
-<div id="loginScreen">
-  <h2>LOGIN 4RKN HOST</h2>
-  <p>Follow IG <a href="https://instagram.com/4rknnnajaa" target="_blank">@4rknnnajaa</a><br>DM: "bang mau bikin akun"</p>
-  
-  <input id="user" placeholder="Username">
-  <input id="pass" type="password" placeholder="Password">
-  <button id="loginBtn">LOGIN</button>
-  
-  <p id="msg" style="color:red;"></p>
+  <section className="py-12">
+    <h2 className="text-4xl font-bold mb-8 text-center text-green-300">
+      Panduan Cyber & Coding
+    </h2>
+
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {guides.map((guide, index) => (
+        
+        <div
+          key={index}
+          className="bg-zinc-900 border border-green-800 rounded-2xl overflow-hidden hover:scale-105 transition shadow-xl animate-[pulse_5s_infinite]"
+        >
+          <img
+            src={guideImages[index % guideImages.length]}
+            alt={guide}
+            className="w-full h-44 object-cover"
+          />
+
+          <div className="p-5">
+          <h3 className="text-xl font-bold text-green-300">
+            #{index + 1} {guide}
+          </h3>
+
+          <p className="mt-3 text-green-200 leading-7 text-sm">
+            Panduan lengkap untuk mempelajari {guide.toLowerCase()} secara
+            bertahap untuk pemula.
+          </p>
+
+          <button className="mt-5 border border-green-500 px-4 py-2 rounded-xl hover:bg-green-500 hover:text-black transition">
+            Baca Panduan
+          </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section className="py-12">
+    <div className="rounded-3xl overflow-hidden border border-green-700 shadow-2xl mb-10">
+      <video
+        autoPlay
+        muted
+        loop
+        className="w-full h-[300px] object-cover"
+      >
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div className="bg-zinc-900 border border-green-800 rounded-3xl p-8 shadow-2xl">
+      <h2 className="text-4xl font-bold mb-6 text-green-300">
+        Apa Itu Bug Bounty?
+      </h2>
+
+      <p className="leading-8 text-green-200">
+        Bug bounty adalah program legal dari perusahaan yang mengizinkan
+        researcher keamanan mencari celah keamanan pada sistem mereka.
+        Jika menemukan bug yang valid, biasanya researcher mendapatkan
+        reward atau penghasilan.
+      </p>
+
+      <div className="mt-6 space-y-3 text-green-300">
+        <p>• Belajar dasar HTTP & HTTPS</p>
+        <p>• Pelajari HTML, JavaScript, dan API</p>
+        <p>• Gunakan tools legal seperti Burp Suite & OWASP ZAP</p>
+        <p>• Fokus pada pembelajaran ethical hacking</p>
+        <p>• Jangan menyerang website tanpa izin</p>
+      </div>
+    </div>
+  </section>
+
+  <footer className="py-10 border-t border-green-800 text-center text-green-500">
+    <p>CyberBasicClassRoom © 2026</p>
+    <p className="mt-2">Create by 4rknnnajaaa</p>
+  </footer>
 </div>
 
-<!-- MAIN -->
-<div id="mainSite">
-  <div class="title">4RKN HOST</div>
-  <div id="guide">Klik START SYSTEM</div>
-  <button id="startBtn">START SYSTEM</button>
-
-  <div class="terminal" id="terminal"></div>
-
-  <div id="gallery">
-    <h2 style="color:red;">DATA VISUAL</h2>
-    <img src="IMG_20260307_162628_141.jpg">
-    <img src="IMG_20260206_184434_707.jpg">
-    <img src="IMG-20260314-WA0015.jpg">
-  </div>
-</div>
-
-<!-- JUMPSCARE -->
-<div id="jumpscare">
-  <img src="https://i.imgur.com/Z6XK7vR.png" width="300">
-</div>
-
-<audio id="bg" src="https://www.myinstants.com/media/sounds/creepy-ambience.mp3" loop></audio>
-<audio id="scare" src="https://www.myinstants.com/media/sounds/scream.mp3"></audio>
-
-<script>
-// LOGIN
-const USER="ARKAN GANTENG";
-const PASSWORDS=["ARKAN GANTENG","FOLLOW4RKN"];
-
-document.getElementById("loginBtn").addEventListener("click", ()=>{
-  let u=document.getElementById("user").value.trim();
-  let p=document.getElementById("pass").value.trim();
-
-  if(u===USER && PASSWORDS.includes(p.toUpperCase())){
-    document.getElementById("loginScreen").style.display="none";
-    document.getElementById("mainSite").style.display="block";
-    document.getElementById("bg").play().catch(()=>{});
-  }else{
-    document.getElementById("msg").innerText="Salah! Follow & DM IG dulu!";
-  }
-});
-
-// TERMINAL
-const data=[
-"Connecting...",
-"Bypassing...",
-"Access granted...",
-"Loading data...",
-"Scanning...",
-"System injected...",
-"System compromised..."
-];
-
-let i=0;
-
-document.getElementById("startBtn").addEventListener("click", ()=>{
-  let terminal=document.getElementById("terminal");
-  let guide=document.getElementById("guide");
-
-  i=0;
-  terminal.innerHTML="";
-
-  let interval=setInterval(()=>{
-    if(i<data.length){
-      terminal.innerHTML+=data[i]+"<br>";
-      terminal.scrollTop=terminal.scrollHeight;
-      guide.innerText=data[i];
-      i++;
-    }else{
-      clearInterval(interval);
-      result();
-    }
-  },700);
-});
-
-// RESULT
-function result(){
-  let jump=document.getElementById("jumpscare");
-
-  setTimeout(()=>{
-    jump.style.opacity=1;
-    document.getElementById("scare").play();
-  },1000);
-
-  setTimeout(()=>{
-    jump.style.opacity=0;
-    document.getElementById("gallery").style.display="block";
-  },3000);
-}
-
-// FLOAT TEXT
-const quotes=["aku lelah...","sendiri...","gelap...","hilang..."];
-setInterval(()=>{
-  let q=document.createElement("div");
-  q.className="neon";
-  q.style.left=Math.random()*window.innerWidth+"px";
-  q.innerText=quotes[Math.floor(Math.random()*quotes.length)];
-  document.body.appendChild(q);
-  setTimeout(()=>q.remove(),5000);
-},1500);
-
-</script>
-
-</body>
-</html>
+); }
